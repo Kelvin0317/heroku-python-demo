@@ -155,19 +155,19 @@ def favicon():
 def home_page():
     data = Days_Data;
     json_dump = json.dumps(data)
-    return json_dump
+    return "hello world"
 
-@app.route('/full')
-def e_page():
-    data = pvim_Data;
-    json_dump = json.dumps(data)
-    return json_dump
-
-@app.route('/week')
-def w_page():
-    data = Weeks_Data;
-    json_dump = json.dumps(data)
-    return json_dump
+# @app.route('/full')
+# def e_page():
+#     data = pvim_Data;
+#     json_dump = json.dumps(data)
+#     return json_dump
+#
+# @app.route('/week')
+# def w_page():
+#     data = Weeks_Data;
+#     json_dump = json.dumps(data)
+#     return json_dump
 
 if __name__ == "__main__":
     app.secret_key = 'ItIsASecret'
