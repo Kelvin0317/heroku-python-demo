@@ -5,6 +5,8 @@ import mysql.connector
 import matplotlib.pyplot as plt
 import pandas as pd
 from flask import send_from_directory
+from flask import Flask
+from flask_cors import CORS, cross_origin
 
 mydb = mysql.connector.connect(
     host='sql6.freemysqlhosting.net',
@@ -140,7 +142,8 @@ pvim_Data.append(TP_Data)
 pvim_Data.append(Days)
 pvim_Data.append(ex_Data)
 
-app = flask.Flask(__name__)
+app = Flask(__name__)
+CORS(app)
 
 @app.route('/favicon.ico')
 def favicon():
