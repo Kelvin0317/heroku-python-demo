@@ -151,19 +151,19 @@ def favicon():
                                'favicon.ico', mimetype='image/favicon.png')
 
 
-@app.route('/', methods=['GET'])
+@app.route('/')
 def home_page():
     data = Days_Data;
     json_dump = json.dumps(data)
     return json_dump
 
-@app.route('/full', methods=['GET'])
+@app.route('/full')
 def e_page():
     data = pvim_Data;
     json_dump = json.dumps(data)
     return json_dump
 
-@app.route('/week', methods=['GET'])
+@app.route('/week')
 def w_page():
     data = Weeks_Data;
     json_dump = json.dumps(data)
