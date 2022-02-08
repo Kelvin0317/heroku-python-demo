@@ -2,13 +2,13 @@ import flask
 import os
 from flask import send_from_directory
 
-from flask import Flask
-from flask_cors import CORS, cross_origin
+# from flask import Flask
+# from flask_cors import CORS, cross_origin
 
-import json
-import mysql.connector
-import matplotlib.pyplot as plt
-import pandas as pd
+# import json
+# import mysql.connector
+# import matplotlib.pyplot as plt
+# import pandas as pd
 
 
 # mydb = mysql.connector.connect(
