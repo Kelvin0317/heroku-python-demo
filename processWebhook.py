@@ -1,7 +1,7 @@
 import flask
 import os
-import json
-import mysql.connector
+# import json
+# import mysql.connector
 import matplotlib.pyplot as plt
 import pandas as pd
 from flask import send_from_directory
