@@ -39,7 +39,7 @@ def index():
         i += 1
 
 
-    MD_Reduction = 10
+    MD_Reduction = int(sent_data[3])
 
     MD = []
     i = 0
@@ -55,7 +55,7 @@ def index():
     while len(MD) > i:
         MD_Threshold.append(MD[i] * Total / 100)
         i += 1
-    # print("MD Threshold: " + str(MD_Threshold) + "(kW)")
+    print("MD Threshold: " + str(MD_Threshold) + "(kW)")
 
     More_than_Energy = []  # kWh
     i = 0
