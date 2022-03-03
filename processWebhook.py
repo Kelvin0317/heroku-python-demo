@@ -5,19 +5,15 @@ import json
 app = Flask(__name__)
 CORS(app)
 
-
-
-
 @app.route("/", methods=['POST','GET'])
 @cross_origin(supports_credentials=True)
 
-def index():
+def uploadFile():
     Load_Energy = []
     sent_data = request.get_json()
     print(sent_data[1])
     for row in sent_data[0]:
         Load_Energy.append(row['PV Energy'] + row['Utility Import Energy'] - row['Utility Export Energy'])
-    # print(Load_Energy)
 
     a = 1
     day = 1
@@ -66,7 +62,6 @@ def index():
     while len(MD) > i:
         More_than_Energy.append(MD_Threshold[i] / 2)
         i += 1
-    # print(More_than_Energy)
 
     Battery_Discharged_Energy_Each_Day = []
     Battery_Discharged_30 = []
@@ -176,12 +171,10 @@ def index():
 
     return ({'roi':ROI, 'day': Total_day, 'saving_per_day': Total_Saving_Day})
 
-
-
 @app.route("/realtime", methods=['POST','GET'])
 @cross_origin(supports_credentials=True)
 
-def yes():
+def realTime():
     Load_Energy = []
     sent_data = request.get_json()
     print(sent_data)
@@ -420,10 +413,7 @@ def Information():
         day.append(row['GroupLabel'][:11])
         load.append((row['kWh_Import_PV'] * 2) + (row['kWh_Import_TNB'] * 2))
 
-    # print(time)
     return({"kWh_Export_PV": kWh_Export_PV, "kWh_Import_TNB": kWh_Import_TNB, "kWh_Import_PV": kWh_Import_PV,"kW_Import_PV": kW_Import_PV, "kW_Import_TNB": kW_Import_TNB,"load": load, 'day': day, 'time': time})
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-
